@@ -16,7 +16,13 @@ p {
   padding: 0;
   margin: 0;
 }
-
+body {
+   background: (linear, left top, right top, from(#0b0b0b73), color-stop(50%, #0b0b0b80)),url(../images/main-bg.png);
+    background: linear-gradient(
+90deg
+, #0b0b0b73 0%, #0b0b0b80 50%),url(../images/main-bg.png);
+margin: 0 auto;
+}
 
 * {
 font-family: 'Montserrat', sans-serif;
@@ -28,6 +34,8 @@ max-width: 320px;
     background: linear-gradient(
 90deg
 , #0b0b0b73 0%, #0b0b0b80 50%),url(../images/main-bg.png);
+margin: 0 auto;
+
  
 
 }

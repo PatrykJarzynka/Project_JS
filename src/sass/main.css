@@ -1,1 +1,54 @@
-/* No CSS *//*# sourceMappingURL=main.css.map */
+.header {
+  background: -webkit-gradient(linear, left top, right top, from(#0b0b0b73), color-stop(50%, #0b0b0b80)), url(../images/bg.jpg);
+  background: linear-gradient(90deg, #0b0b0b73 0%, #0b0b0b80 50%), url(../images/bg.jpg);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  height: 364px;
+  position: relative;
+}
+
+.header__search-bar {
+  background: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  /* Note: backdrop-filter has minimal browser support */
+  border-radius: 20px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: black;
+  color: white;
+}
+
+.list {
+  list-style: none;
+}
+/*# sourceMappingURL=main.css.map */

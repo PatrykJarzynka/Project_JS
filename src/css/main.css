@@ -174,7 +174,6 @@ body {
   background: linear, left top, right top, from(#0b0b0b73), color-stop(50%, #0b0b0b80), url(../images/main-bg.png);
   background: -webkit-gradient(linear, left top, right top, from(#0b0b0b73), color-stop(50%, #0b0b0b80)), url(../images/main-bg.png);
   background: linear-gradient(90deg, #0b0b0b73 0%, #0b0b0b80 50%), url(../images/main-bg.png);
-  margin: 0 auto;
 }
 
 * {
@@ -189,15 +188,38 @@ body {
   background: linear, left top, right top, from(#0b0b0b73), color-stop(50%, #0b0b0b80), url(../images/main-bg.png);
   background: -webkit-gradient(linear, left top, right top, from(#0b0b0b73), color-stop(50%, #0b0b0b80)), url(../images/main-bg.png);
   background: linear-gradient(90deg, #0b0b0b73 0%, #0b0b0b80 50%), url(../images/main-bg.png);
-  margin: 0 auto;
 }
 
 .list {
   list-style: none;
 }
 
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .container {
+    max-width: 768px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  body {
+    background: linear, left top, right top, from(#0b0b0b73), color-stop(50%, #0b0b0b80), url(../images/main-bg-tablet.png);
+    background: -webkit-gradient(linear, left top, right top, from(#0b0b0b73), color-stop(50%, #0b0b0b80)), url(../images/main-bg-tablet.png);
+    background: linear-gradient(90deg, #0b0b0b73 0%, #0b0b0b80 50%), url(../images/main-bg-tablet.png);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 1280px;
+  }
+  body {
+    background: linear, left top, right top, from(#0b0b0b73), color-stop(50%, #0b0b0b80), url(../images/main-bg-desktop.png);
+    background: -webkit-gradient(linear, left top, right top, from(#0b0b0b73), color-stop(50%, #0b0b0b80)), url(../images/main-bg-desktop.png);
+    background: linear-gradient(90deg, #0b0b0b73 0%, #0b0b0b80 50%), url(../images/main-bg-desktop.png);
+  }
+}
+
 .footer .container {
-  background-color: black;
   padding-bottom: 27px;
 }
 
@@ -207,11 +229,24 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding-left: 25px;
+  white-space: nowrap;
 }
 
 .footer__heart {
   color: red;
+}
+
+@media screen and (min-width: 1200px) {
+  .footer__text {
+    font-size: 16px;
+    line-height: 20px;
+    /* identical to box height */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding-left: 355px;
+    text-align: center;
+  }
 }
 
 .header {
@@ -231,7 +266,7 @@ body {
 
 .header__title-text {
   width: 212px;
-  color: #DC56C5;
+  color: #dc56c5;
   font-weight: 900;
   font-size: 18px;
   line-height: 1.222;
@@ -320,5 +355,93 @@ body {
   position: absolute;
   left: 0;
   top: 0;
+}
+
+.logo {
+  background-image: url(../images/logo.png);
+  width: 200px;
+  height: 100px;
+  background-repeat: no-repeat;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .header {
+    background: linear, left top, right top, from(#0b0b0b73), color-stop(50%, #0b0b0b80), url(../images/bg-tablet.png);
+    background: -webkit-gradient(linear, left top, right top, from(#0b0b0b73), color-stop(50%, #0b0b0b80)), url(../images/bg-tablet.png);
+    background: linear-gradient(90deg, #0b0b0b73 0%, #0b0b0b80 50%), url(../images/bg-tablet.png);
+    max-width: 768px;
+    margin: 0 auto;
+  }
+  .logo {
+    background-image: url(../images/logo-tablet.png);
+    width: 250px;
+    height: 200px;
+    background-repeat: no-repeat;
+  }
+  .header__title-text {
+    left: 208px;
+    font-weight: 900;
+    font-size: 30px;
+    line-height: 37px;
+    text-align: center;
+    width: 353px;
+    position: absolute;
+    top: 40px;
+  }
+  .search-bar__form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    padding-left: 75px;
+    position: absolute;
+    top: -5px;
+  }
+  .search-bar__wrap-drop {
+    margin-left: 30px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .header {
+    background: linear, left top, right top, from(#0b0b0b73), color-stop(50%, #0b0b0b80), url(../images/bg-desktop.png);
+    background: -webkit-gradient(linear, left top, right top, from(#0b0b0b73), color-stop(50%, #0b0b0b80)), url(../images/bg-desktop.png);
+    background: linear-gradient(90deg, #0b0b0b73 0%, #0b0b0b80 50%), url(../images/bg-desktop.png);
+    max-width: 1280px;
+    height: 446px;
+  }
+  .logo {
+    background-image: url(../images/logo-desktop.png);
+    width: 250px;
+    height: 200px;
+    background-repeat: no-repeat;
+  }
+  .header__title-text {
+    font-size: 50px;
+    line-height: 61px;
+    text-align: center;
+    left: 340px;
+    top: 40px;
+    width: 600px;
+    height: 122px;
+  }
+  .search-bar__form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    position: absolute;
+    top: 52px;
+    padding-left: 325px;
+  }
+  .search-bar__wrap-drop {
+    margin-left: 30px;
+  }
 }
 /*# sourceMappingURL=main.css.map */

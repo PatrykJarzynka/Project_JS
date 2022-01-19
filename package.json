@@ -26,6 +26,7 @@
     "sass": "^1.32.8"
   },
   "dependencies": {
+    "izitoast": "^1.4.0",
     "notiflix": "^3.2.2"
   }
 }

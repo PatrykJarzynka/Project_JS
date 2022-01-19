@@ -1,7 +1,6 @@
 import { galleryRender } from './render-gallery';
-<<<<<<< Updated upstream
 import { refs } from './refs';
-=======
+
 
 const form = document.querySelector('.search-bar__form');
 const input = form.querySelector('.search-bar__input');

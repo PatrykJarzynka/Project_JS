@@ -113,8 +113,9 @@ class ModalController {
 
 function launchModalWindowPlugin(gallery, closeBtnSelector) {
   // podłączam eventListener do kontenera galerii
-    gallery.addEventListener('click', (e) => {
-    if(e.target.classList.value.includes('gallery__event')) {
+  gallery.addEventListener('click', (e) => {
+    try {
+      if (e.target.classList.value.includes('gallery__event') || e.target.offsetParent.classList.value.includes('gallery__event')) {
       const firstModal = e.target.children[2];
       const secondModal = e.target.offsetParent.children[2];
 
@@ -138,7 +139,11 @@ function launchModalWindowPlugin(gallery, closeBtnSelector) {
       // połączam przycisk "Load more from this author"
       const fromAuthorFetch = modalController.getAuthorId();
       loadMoreAuthor('opened-author-btn', fromAuthorFetch.venueId, gallery);
+      }
+    } catch (e) {
+      return;
     }
+
   });
 };
 

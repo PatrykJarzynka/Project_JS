@@ -15,7 +15,8 @@ class RenderCard {
 
       // ustawiam cechy obiektu
         this.eventName = this.checkData(event.name, 'No Name Info');
-        this.eventInfo = this.setEventInfo(this.checkData(event.info, 'No Event Info'));
+        this.eventNameCutted = this.cutInfo(this.checkData(event.name, 'No Name Info'), 40);
+        this.eventInfo = this.cutInfo(this.checkData(event.info, 'No Event Info'), 50);
         this.eventDate = this.checkData(event.dates.start.localDate, 'No Date Info');
         this.id = this.checkData(event.id, 'No Id');
 
@@ -113,12 +114,12 @@ class RenderCard {
           <div class="event__image--container">
             <img class="event__image lazyload"
               ${this.setGalleryImageContainer(this.imagesListMedium)}
-              alt ="${this.eventName}"
+              alt ="${this.eventNameCutted}"
               loading="lazy"
               sizes="(min-width: 1200px) 25vw, (min-width: 480px) 33vw, 50vw"/>
           </div>
           <div class="event__info">
-            <p class="event__tittle">${this.eventName}</p>
+            <p class="event__tittle">${this.eventNameCutted}</p>
             <p class="event__date">${this.eventDate}</p>
             <p class="event__place"> ${this.eventLocation}</p>
           </div>
@@ -159,9 +160,6 @@ class RenderCard {
                   <div class="modal-window__info--container">
                     <h2 class="modal-window__title">Prices</h2>
                     ${this.standardPriceContainer}
-                  </div>
-                  <button class="modal-window__more--btn" type="button">MORE FROM THIS AUTHOR</button>
-                </div>
               </div>
             </div>
           </div>
@@ -227,12 +225,18 @@ class RenderCard {
                         </button>
                 </div >
                 ${this.vipPriceContainer}
+                  </div>
+                  <button class="modal-window__more--btn" type="button">MORE FROM THIS AUTHOR</button>
+                </div>
             `;
             } else {
                 this.standardPriceContainer = `
                 <a>
                 <button class="modal-window__btn" type="submit">Check on Website</button>
                 </a>
+                  </div>
+                  <button class="modal-window__more--btn check-website" type="button">MORE FROM THIS AUTHOR</button>
+                </div>
                 `
         };
     };
@@ -261,10 +265,10 @@ class RenderCard {
   };
 
     // funkcja skrócenia zbyt długiego tekstu
-    setEventInfo(text) {
+    cutInfo(text, maxLength) {
       let newText = text;
-      if (text.length > 100) {
-        newText = `${text.slice(0, 100)}...`
+      if (text.length > maxLength) {
+        newText = `${text.slice(0, maxLength)}...`
       }
 
       return newText;

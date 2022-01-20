@@ -78,10 +78,10 @@ class Pagination {
       this.temporary.push('...');
       this.temporary.push(this.pageNumber);
       }
-  if (this.pageNumber == this.elementsToShow) {
-    this.temporary.pop(this.pageNumber);
-    this.temporary.pop('...');
-  }
+    if (this.pageNumber == this.elementsToShow) {
+      this.temporary.pop(this.pageNumber);
+      this.temporary.pop('...');
+    }
 
       this.paginationContainer.innerHTML = '';
       this.temporary.map((num, index) => {

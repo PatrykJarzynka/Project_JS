@@ -2,6 +2,12 @@ import { RenderCard } from './card-render-plugin';
 import { launchModalWindowPlugin } from './modal-open-plugin';
 import { GenerateLink } from './link-generator';
 
+import Svg from '../images/svg/symbol-defs.svg';
+
+const funSvg = `
+  <svg class='fa-times-circle'><use href="${Svg}#icon-middle-finger1"></use></svg>
+`;
+
 /*
 * Plugin Fetch
 */
@@ -71,7 +77,21 @@ class MakeFetch {
 
   // funkcja, jeżeli fetch nie udał się
   _failedFetch() {
+    // iziToast.error({
+    //   message: 'Sorry, we do not find the result of your search, try please later',
+    //   backgroundColor: '#DC56C5',
+    //   // icon:
+    //   maxWidth: 300,
+    //   color: '#ffffff',
+    //   messageLineHeight: 25,
+    //   position: 'bottomRight',
+    //   // theme: 'dark'
+    // });
+
     this.notification.failure('Sorry, we do not find the result of your search, try please later');
+    const notifIcon = document.querySelector('.fa-times-circle');
+    notifIcon.innerHTML = funSvg;
+    console.log(notifIcon);
   }
 
   // funkcja czyszczenia kontenera kart ewentów

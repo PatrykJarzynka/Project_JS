@@ -9,6 +9,7 @@ const refs = {
   select: document.querySelector('.country'),
   gallery: document.querySelector('.gallery'),
   lazyImages: document.querySelectorAll('img[data-src]'),
+  loading: document.querySelector("#loading"),
 }
 
 

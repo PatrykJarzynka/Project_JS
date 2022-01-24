@@ -49,7 +49,7 @@
   height: 40px;
   margin-bottom: 25px;
   //outline: none;
-  color: getColor("secondary-text");  
+  color: getColor("secondary-text");
   font-size: 16px;
   line-height: 1.21;
   font-weight: 400;
@@ -66,7 +66,7 @@
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(50px);
   border-radius: 20px;
-  color: getColor("secondary-text");  
+  color: getColor("secondary-text");
   font-size: 16px;
   line-height: 1.21;
   font-weight: 400;
@@ -83,7 +83,7 @@
   backdrop-filter: blur(50px);
   border-radius: 20px;
   padding: 10px 30px;
-  color: getColor("secondary-text");  
+  color: getColor("secondary-text");
   font-size: 16px;
   line-height: 1.21;
   font-weight: 400;
@@ -91,6 +91,20 @@
   margin-bottom: 25px;
   appearance: none;
   z-index: 0;
+
+  & option {
+    background-color: #0E0E0E;
+    color: get('primary-title-text');
+    border: 1px solid #FFF;
+
+    &:hover,
+    &:focus {
+      background-color: #fff;
+      color: get('primary-title-text');
+      border: 1px solid black;
+
+    }
+  }
 }
 
 .search-bar__icon {
@@ -230,7 +244,7 @@ animation: bounce-in 1s ease-in-out 0s 1 normal;
     // height: 40px;
     // margin-bottom: 25px;
     // //outline: none;
-    // color: getColor("secondary-text");  
+    // color: getColor("secondary-text");
     // font-size: 16px;
     // line-height: 1.21;
     // font-weight: 400;
@@ -249,7 +263,7 @@ animation: bounce-in 1s ease-in-out 0s 1 normal;
     // -webkit-backdrop-filter: blur(20px);
     // backdrop-filter: blur(50px);
     // border-radius: 20px;
-    // color: getColor("secondary-text");  
+    // color: getColor("secondary-text");
     // font-size: 16px;
     // line-height: 1.21;
     // font-weight: 400;
@@ -266,7 +280,7 @@ animation: bounce-in 1s ease-in-out 0s 1 normal;
     // backdrop-filter: blur(50px);
     // border-radius: 20px;
     // padding: 10px 30px;
-    // color: getColor("secondary-text");  
+    // color: getColor("secondary-text");
     // font-size: 16px;
     // line-height: 1.21;
     // font-weight: 400;
@@ -356,7 +370,7 @@ animation: bounce-in 1s ease-in-out 0s 1 normal;
     // height: 40px;
     // margin-bottom: 25px;
     // //outline: none;
-    // color: getColor("secondary-text");  
+    // color: getColor("secondary-text");
     // font-size: 16px;
     // line-height: 1.21;
     // font-weight: 400;
@@ -375,7 +389,7 @@ animation: bounce-in 1s ease-in-out 0s 1 normal;
     // -webkit-backdrop-filter: blur(20px);
     // backdrop-filter: blur(50px);
     // border-radius: 20px;
-    // color: getColor("secondary-text");  
+    // color: getColor("secondary-text");
     // font-size: 16px;
     // line-height: 1.21;
     // font-weight: 400;
@@ -392,7 +406,7 @@ animation: bounce-in 1s ease-in-out 0s 1 normal;
     // backdrop-filter: blur(50px);
     // border-radius: 20px;
     // padding: 10px 30px;
-    // color: getColor("secondary-text");  
+    // color: getColor("secondary-text");
     // font-size: 16px;
     // line-height: 1.21;
     // font-weight: 400;

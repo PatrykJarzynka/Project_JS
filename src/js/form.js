@@ -9,7 +9,11 @@ async function searchEvents(event) {
   keyword = refs.input.value;
   countryCode = refs.select.value;
 
-  galleryRender({ country: countryCode, keyword: keyword });
+  galleryRender({
+    country: countryCode,
+    keyword: keyword,
+    loadContainer: refs.loading
+  });
 }
 
 

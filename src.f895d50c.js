@@ -29,4 +29,4 @@ var t,e=arguments[3];!function(e,i){"function"==typeof t&&t.amd?t([],function(){
 },{"./refs":"VyiV"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss");var e=require("./js/render-gallery"),r=require("./js/get-current-location"),a=require("./js/lazyload"),s=require("./js/refs"),t=require("./js/loading");let o=1,i="";const n=new t.Loader(s.refs.loading);n.displayLoading();try{r.request.onreadystatechange=function(){if(4===this.readyState){const e=JSON.parse(this.responseText);i=e.country_code.toLowerCase()}}}catch(d){i="us"}setTimeout(()=>{(0,e.galleryRender)({country:i,page:o,loadContainer:s.refs.loading})},2e3),"loading"in HTMLImageElement.prototype?(0,a.addSrcToLazyImages)():(0,a.addLibraryScript)();
 },{"./sass/main.scss":"clu1","./js/render-gallery":"x2zJ","./js/get-current-location":"jP0l","./js/lazyload":"WxRR","./js/refs":"VyiV","./js/loading":"GTI9"}]},{},["Focm"], null)
-//# sourceMappingURL=/Project_JS/src.a1069ea6.js.map
+//# sourceMappingURL=/Project_JS/src.f895d50c.js.map

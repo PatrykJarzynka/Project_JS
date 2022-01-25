@@ -3,17 +3,20 @@
 }
 
 #loading.display {
+  height: 100%;
+  width: 100vw;
+  background-color: getColor("modal-bg-color");
+  position: fixed;
   display: block;
+    transform: translate(-50%, 0%);
+  z-index: 100;
+  top: 0%;
+  left: 50%;
 }
 
 .socket {
   width: 200px;
   height: 200px;
-  position: absolute;
-  left: 50%;
-  margin-left: -100px;
-  top: 50%;
-  margin-top: -100px;
 }
 
 .hex-brick {

@@ -241,7 +241,7 @@
       margin-top: 50px;
     }
 
-    @media screen and (max-height: $small_mobile) {
+    @media screen and (max-height: $small_mobile) and (max-width: $mobile) {
       font-size: $main-modal-font-size-low-screen;
       width: 160px;
     }

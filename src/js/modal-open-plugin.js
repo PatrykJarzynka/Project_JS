@@ -111,7 +111,7 @@ class ModalController {
 
 // funkcja kontroli plugina okna modalnego
 
-function launchModalWindowPlugin(gallery, closeBtnSelector) {
+function launchModalWindowPlugin(gallery, closeBtnSelector, loadContainer) {
   // podłączam eventListener do kontenera galerii
   gallery.addEventListener('click', (e) => {
     try {
@@ -138,7 +138,7 @@ function launchModalWindowPlugin(gallery, closeBtnSelector) {
 
       // połączam przycisk "Load more from this author"
       const fromAuthorFetch = modalController.getAuthorId();
-      loadMoreAuthor('opened-author-btn', fromAuthorFetch.venueId, gallery);
+      loadMoreAuthor('opened-author-btn', fromAuthorFetch.venueId, loadContainer);
       }
     } catch (e) {
       return;
@@ -148,11 +148,12 @@ function launchModalWindowPlugin(gallery, closeBtnSelector) {
 };
 
 
-function loadMoreAuthor(cssClass, authorId) {
+function loadMoreAuthor(cssClass, authorId, loadContainer) {
   // połączam przycisk "Load more from this author"
   const btn = document.querySelector(`.${cssClass}`);
-  btn.addEventListener('click', () => {
-    galleryRender({ authorId: authorId})
+  btn.addEventListener('click', (e) => {
+    console.log(e);
+    galleryRender({ authorId: authorId, loadContainer: loadContainer})
   })
 }
 

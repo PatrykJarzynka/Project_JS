@@ -12,6 +12,7 @@ class Pagination {
     country,
     authorId,
     keyword,
+    loadContainer,
   }) {
 
     // ustawiam cechy obiektu
@@ -25,6 +26,7 @@ class Pagination {
     this.elementsToShow = 5;
     this.temporary;
     this.setTemporary();
+    this.loadContainer = loadContainer;
   }
 
   setPageNumber(pageNumber) {
@@ -109,7 +111,11 @@ class Pagination {
     </span>`;
 
 
-    handlePaginationOnClick = async e => {
+  handlePaginationOnClick = async e => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
     e.preventDefault();
     this.cardContainer.innerHTML = '';
     document
@@ -119,12 +125,15 @@ class Pagination {
     e.target.closest('li')?.classList.add('pagination__link--active');
       this.currentPage = e.target.textContent;
 
-    await galleryRender({country: this.country, page: +this.currentPage, keyword: this.keyword, authorId: this.authorId});
+      await galleryRender({
+        country: this.country,
+        page: +this.currentPage,
+        keyword: this.keyword,
+        authorId: this.authorId,
+        loadContainer: this.loadContainer,
+      });
     e.preventDefault()
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
+
   };
 
   paginationClear() {

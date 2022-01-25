@@ -1,6 +1,7 @@
 import { RenderCard } from './card-render-plugin';
 import { launchModalWindowPlugin } from './modal-open-plugin';
 import { GenerateLink } from './link-generator';
+import { Loader } from './loading';
 
 import Svg from '../images/svg/symbol-defs.svg';
 
@@ -12,7 +13,16 @@ const funSvg = `
 * Plugin Fetch
 */
 class MakeFetch {
-  constructor({ container, notification, input, selectContainer, keyword, countryCode, authorId, pageNumber }) {
+  constructor({
+    container,
+    notification,
+    input,
+    selectContainer,
+    keyword,
+    countryCode,
+    authorId,
+    pageNumber,
+    loadContainer }) {
     // czyszczę fetch dla nowego wykorzystania
     this.clearFetch();
 
@@ -35,13 +45,23 @@ class MakeFetch {
       authorId: this.authorId,
       pageNumber: this.pageNumber,
     });
+    this.loadContainer = loadContainer;
+    this.LoaderPlugin = new Loader(this.loadContainer);
 
     // oddaję linka z pomocą plugina
     this.link = this.linkGeneratorPlugin.giveLink();
+    console.log(this.container.parentNode);
   }
 
   // robię fetch
   async makeFetch() {
+
+    if (this.container.classList.value.includes('shown')) {
+        this.container.classList.remove('shown');
+    };
+      // funkcja czyszczenia kontenera kart ewentów
+    this._clearContainer();
+    this.LoaderPlugin.displayLoading();
     await fetch(this.link)
       .then(response => response.json())
       .then(data => this._successfulFetchService(data))
@@ -57,8 +77,6 @@ class MakeFetch {
   _successfulFetchService(data) {
       // funkcja ustawiania liczby stron przy fetch
       this._setPageNumber(data);
-      // funkcja czyszczenia kontenera kart ewentów
-      this._clearContainer();
       // funkcja ustawienia listy ewentów
       this._setEventList(data);
       this.eventList.forEach(element => {
@@ -70,28 +88,19 @@ class MakeFetch {
           renderedCard
         );
       });
-
+    setTimeout(() => {
+      this.LoaderPlugin.hideLoading();
+      this.container.classList.add('shown');
+    }, 3000);
       // łączę plugin okna modalnego
-      launchModalWindowPlugin(this.container, 'modal-window__close--btn');
+      launchModalWindowPlugin(this.container, 'modal-window__close--btn', this.loadContainer);
   }
 
   // funkcja, jeżeli fetch nie udał się
   _failedFetch() {
-    // iziToast.error({
-    //   message: 'Sorry, we do not find the result of your search, try please later',
-    //   backgroundColor: '#DC56C5',
-    //   // icon:
-    //   maxWidth: 300,
-    //   color: '#ffffff',
-    //   messageLineHeight: 25,
-    //   position: 'bottomRight',
-    //   // theme: 'dark'
-    // });
-
     this.notification.failure('Sorry, we do not find the result of your search, try please later');
     const notifIcon = document.querySelector('.fa-times-circle');
     notifIcon.innerHTML = funSvg;
-    console.log(notifIcon);
   }
 
   // funkcja czyszczenia kontenera kart ewentów
@@ -138,7 +147,6 @@ class MakeFetch {
     this.link = '';
   }
 }
-
 
 export { MakeFetch };
 

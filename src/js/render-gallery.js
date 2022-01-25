@@ -52,8 +52,7 @@ Notiflix.Notify.init({
 
 
 
-async function galleryRender({ country, page, keyword, authorId }) {
-
+async function galleryRender({ country, page, keyword, authorId, loadContainer }) {
     // żeby uniknąc nakładania eventListenerów przy paginacji zamieniam kontener paginacji na klona
     const paginationList = document.querySelector('.pagination');
     const cloneContainer = paginationList.cloneNode(true);
@@ -66,6 +65,7 @@ async function galleryRender({ country, page, keyword, authorId }) {
     countryCode: country,
     keyword: keyword,
     authorId: authorId,
+    loadContainer: loadContainer,
   })
 
   await fetchService.makeFetch();
@@ -78,6 +78,7 @@ async function galleryRender({ country, page, keyword, authorId }) {
     country: country,
     keyword: keyword,
     authorId: authorId,
+    loadContainer: loadContainer,
   });
 
    //DODAJE TUTAL TOTALPAGES ZEBY SPRAWDZIC CZCY POTRZEBNE SA TRZY KROPKI

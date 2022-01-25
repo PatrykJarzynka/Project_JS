@@ -250,6 +250,7 @@
 
     &.check-website {
       @media screen and (min-width: $tablet) {
+        position: relative;
         margin-top: 100px;
       }
   }

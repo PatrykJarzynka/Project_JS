@@ -235,6 +235,8 @@
     padding: 0;
 
     @media screen and (min-width: $tablet) {
+      position: absolute;
+      bottom: 10%;
       left: 50%;
       width: 255px;
       transform: translate(-50%, 0);

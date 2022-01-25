@@ -18,7 +18,7 @@ try {
     };
   };
 } catch (error) {
-  country = 'pl';
+  country = 'us';
 }
 
 
